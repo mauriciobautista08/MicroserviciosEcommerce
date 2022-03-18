@@ -2,6 +2,7 @@
 using Catalog.Service.Queries;
 using Catalog.Service.Queries.DTOs;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Service.Common.Collection;
@@ -12,6 +13,7 @@ using System.Threading.Tasks;
 
 namespace Catalog.API.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("products")]
     public class ProductController : ControllerBase
