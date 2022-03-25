@@ -16,7 +16,7 @@ namespace Catalog.API.Controllers
 {
     [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     [ApiController]
-    [Route("products")]
+    [Route("v1/products")]
     public class ProductController : ControllerBase
     {
 

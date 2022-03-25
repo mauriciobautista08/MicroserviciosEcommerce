@@ -1,11 +1,16 @@
 ﻿using Api.Gateway.Models;
 using Api.Gateway.Models.Customer.DTO;
 using Api.Gateway.Proxies;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
 namespace Api.Gateway.WebClient.Controllers
 {
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+    [ApiController]
+    [Route("clients")]
     public class ClientController : ControllerBase
     {
         private readonly ICustomerProxy _customerProxy;
@@ -21,6 +26,7 @@ namespace Api.Gateway.WebClient.Controllers
             return await _customerProxy.GetAllAsync(page, take);
         }
 
+        [HttpGet("{id}")]
         public async Task<ClientDTO> Get(int id)
         {
             return await _customerProxy.GetAsync(id);

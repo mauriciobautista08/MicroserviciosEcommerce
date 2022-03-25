@@ -13,7 +13,7 @@ namespace Order.API.Controllers
 {
     [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     [ApiController]
-    [Route("orders")]
+    [Route("v1/orders")]
     public class OrderController : ControllerBase
     {
         private readonly IOrderQueryService _orderQueryService;

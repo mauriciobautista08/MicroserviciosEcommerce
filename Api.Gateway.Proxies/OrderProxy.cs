@@ -37,7 +37,7 @@ namespace Api.Gateway.Proxies
         {
             var ids = string.Join(',', clients ?? new List<int>());
 
-            var request = await _httpClient.GetAsync($"{_apiUrls.OrderUrl}orders?page={page}&take={take}&ids={ids}");
+            var request = await _httpClient.GetAsync($"{_apiUrls.OrderUrl}v1/orders?page={page}&take={take}&ids={ids}");
 
             request.EnsureSuccessStatusCode();
 
@@ -52,7 +52,7 @@ namespace Api.Gateway.Proxies
 
         public async Task<OrderDTO> GetAsync(int id)
         {
-            var request = await _httpClient.GetAsync($"{_apiUrls.OrderUrl}orders/{id}");
+            var request = await _httpClient.GetAsync($"{_apiUrls.OrderUrl}v1/orders/{id}");
             request.EnsureSuccessStatusCode();
 
             return JsonSerializer.Deserialize<OrderDTO>(

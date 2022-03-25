@@ -16,7 +16,7 @@ namespace Customer.API.Controllers
 {
     [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     [ApiController]
-    [Route("clients")]
+    [Route("v1/clients")]
     public class ClientController : ControllerBase
     {
         private readonly IClientQueryService _clientQuerService;
